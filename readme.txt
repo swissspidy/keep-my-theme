@@ -42,14 +42,16 @@ Check if the theme is still installed in WordPress. The plugin can't activate a 
 Good question! You can use the `keepmytheme_history` filter to let the plugin know which themes were active a couple of years ago.
 Example:
 
-`function change_keepmytheme_history( $history ) {
+`
+function change_keepmytheme_history( $history ) {
   $history[ strtotime( '2010-08-01' ) ] = 'default', // I've used the old default theme after August 1st, 2010.
   $history[ strtotime( '2014-01-01' ) ] = 'twentyfourteen' // I've used Twenty Fourteen after January 1st, 2014.
 
   return $history;
 }
 
-add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );`
+add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );
+`
 
 == Screenshots ==
 

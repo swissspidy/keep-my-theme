@@ -1,4 +1,4 @@
-# Voice Search #
+# Keep My Theme #
 **Contributors:** swissspidy  
 **Tags:** Post, posts, theme, themes, content, archives, template, history, stylesheet, Style  
 **Requires at least:** 3.4  
@@ -42,23 +42,25 @@ Check if the theme is still installed in WordPress. The plugin can't activate a 
 Good question! You can use the `keepmytheme_history` filter to let the plugin know which themes were active a couple of years ago.
 Example:
 
-`function change_keepmytheme_history( $history ) {
+`
+function change_keepmytheme_history( $history ) {
   $history[ strtotime( '2010-08-01' ) ] = 'default', // I've used the old default theme after August 1st, 2010.
   $history[ strtotime( '2014-01-01' ) ] = 'twentyfourteen' // I've used Twenty Fourteen after January 1st, 2014.
 
   return $history;
 }
 
-add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );`
+add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );
+`
 
 ## Screenshots ##
 
 ### 1. Each post uses the theme that was active when it was initially published. ###
-![Each post uses the theme that was active when it was initially published.](http://s.wordpress.org/extend/plugins/voice-search/screenshot-1.png)
+![Each post uses the theme that was active when it was initially published.](http://s.wordpress.org/extend/plugins/keep-my-theme/screenshot-1.png)
 
 
 ### 2. Your homepage and other areas of the website keep the regular theme. ###
-![Your homepage and other areas of the website keep the regular theme.](http://s.wordpress.org/extend/plugins/voice-search/screenshot-2.png)
+![Your homepage and other areas of the website keep the regular theme.](http://s.wordpress.org/extend/plugins/keep-my-theme/screenshot-2.png)
 
 
 ## Changelog ##
