@@ -15,14 +15,16 @@ Many of us have been blogging for many years. It happens regularly that we chang
 But when we do that, we loose the zeitgeist of the posts that were once written to perfectly fit the design of that theme.
 
 Keep My Theme detects theme changes and always displays your single posts with the theme active at the time of writing.
-Of course the theme needs to be active in order for this to work.
+Of course the theme needs to be installed in order for this to work.
 
 Using some `switch_theme()` trickery, widgets and menu settings will be preserved.
-Of course this doesn't guarantee perfectly styled posts, so do some testings first.
+This doesn't guarantee perfectly styled posts though, so make sure to do some testing first.
 When you deactivate the plugin, everything will go back to normal. Uninstalling deletes the theme change history.
 
 Have a look at the FAQ to see how you can use this plugin with older posts.
 See [this blog post](https://spinpress.com/keep-my-theme/ "SpinPress - Keep My Theme") for further information about the plugin.
+
+Original idea by [Christian Leu](http://leumund.ch/wuensche-2015-0020864).
 
 ## Installation ##
 
@@ -42,7 +44,7 @@ Check if the theme is still installed in WordPress. The plugin can't activate a 
 Good question! You can use the `keepmytheme_history` filter to let the plugin know which themes were active a couple of years ago.
 Example:
 
-`
+```php
 function change_keepmytheme_history( $history ) {
   $history[ strtotime( '2010-08-01' ) ] = 'default', // I've used the old default theme after August 1st, 2010.
   $history[ strtotime( '2014-01-01' ) ] = 'twentyfourteen' // I've used Twenty Fourteen after January 1st, 2014.
@@ -51,16 +53,16 @@ function change_keepmytheme_history( $history ) {
 }
 
 add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );
-`
+```
 
 ## Screenshots ##
 
 ### 1. Each post uses the theme that was active when it was initially published. ###
-![Each post uses the theme that was active when it was initially published.](http://s.wordpress.org/extend/plugins/keep-my-theme/screenshot-1.png)
+![Each post uses the theme that was active when it was initially published.](https://raw.githubusercontent.com/swissspidy/keep-my-theme/master/screenshot-1.png)
 
 
 ### 2. Your homepage and other areas of the website keep the regular theme. ###
-![Your homepage and other areas of the website keep the regular theme.](http://s.wordpress.org/extend/plugins/keep-my-theme/screenshot-2.png)
+![Your homepage and other areas of the website keep the regular theme.](https://raw.githubusercontent.com/swissspidy/keep-my-theme/master/screenshot-2.png)
 
 
 ## Changelog ##
