@@ -18,11 +18,13 @@ Keep My Theme detects theme changes and always displays your single posts with t
 Of course the theme needs to be installed in order for this to work.
 
 Using some `switch_theme()` trickery, widgets and menu settings will be preserved.
-This doesn't guarantee perfectly styled posts though, so make sure to do some testings first.
+This doesn't guarantee perfectly styled posts though, so make sure to do some testing first.
 When you deactivate the plugin, everything will go back to normal. Uninstalling deletes the theme change history.
 
 Have a look at the FAQ to see how you can use this plugin with older posts.
 See [this blog post](https://spinpress.com/keep-my-theme/ "SpinPress - Keep My Theme") for further information about the plugin.
+
+Original idea by [Christian Leu](http://leumund.ch/wuensche-2015-0020864).
 
 == Installation ==
 
