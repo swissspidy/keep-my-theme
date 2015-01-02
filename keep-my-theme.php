@@ -115,14 +115,14 @@ function keepmytheme_switch_theme() {
 	$wp->query_posts();
 
 	$themes        = keepmytheme_get_option();
-	$latest_theme  = array_pop( $themes );
+	$latest_theme  = array_shift( $themes );
 	$current_theme = wp_get_theme();
 
-	if ( $latest_theme !== $current_theme->get_stylesheet() ) {
+	if ( $latest_theme !== $current_theme->get_stylesheet() && ! is_single( get_queried_object() ) ) {
 		switch_theme( $latest_theme );
 	}
 
-	if ( ! is_single() ) {
+	if ( ! is_single( get_queried_object() ) ) {
 		return;
 	}
 
@@ -145,18 +145,20 @@ function keepmytheme_switch_theme() {
 			// Only switch if the theme exists and isn't already active
 			if ( $theme_obj->exists() && $current_theme->get_stylesheet() !== $theme ) {
 				switch_theme( $theme );
-				return;
 			}
+
+			return;
+
 		}
 	}
 
 	// Switch to the oldest theme in the history if there wasn't a switch yet.
-	$oldest_possible_theme = array_values( $history );
-	$oldest_possible_theme = array_pop( $oldest_possible_theme );
+	$oldest_possible_theme     = array_pop( $history );
 	$oldest_possible_theme_obj = wp_get_theme( $oldest_possible_theme );
 
 	if ( $oldest_possible_theme_obj->exists() ) {
 		switch_theme( $oldest_possible_theme );
+
 		return;
 	}
 
