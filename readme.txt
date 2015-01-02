@@ -15,10 +15,10 @@ Many of us have been blogging for many years. It happens regularly that we chang
 But when we do that, we loose the zeitgeist of the posts that were once written to perfectly fit the design of that theme.
 
 Keep My Theme detects theme changes and always displays your single posts with the theme active at the time of writing.
-Of course the theme needs to be active in order for this to work.
+Of course the theme needs to be installed in order for this to work.
 
 Using some `switch_theme()` trickery, widgets and menu settings will be preserved.
-Of course this doesn't guarantee perfectly styled posts, so do some testings first.
+This doesn't guarantee perfectly styled posts though, so make sure to do some testings first.
 When you deactivate the plugin, everything will go back to normal. Uninstalling deletes the theme change history.
 
 Have a look at the FAQ to see how you can use this plugin with older posts.
