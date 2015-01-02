@@ -1,0 +1,20 @@
+{
+  "name"           : "keep-my-theme",
+  "version"        : "1.0.0",
+  "description"    : "Keep My Theme will display posts with the theme that was active when they were published.",
+  "private"        : true,
+  "repository"     : {
+    "type": "git",
+    "url" : "git@github.com:swissspidy/keep-my-theme.git"
+  },
+  "devDependencies": {
+    "grunt"                      : "*",
+    "grunt-wp-i18n"              : "*",
+    "grunt-wp-readme-to-markdown": "*",
+    "load-grunt-config"          : "*",
+    "time-grunt"                 : "*"
+  },
+  "dependencies"   : {
+    "time-grunt": "*"
+  }
+}

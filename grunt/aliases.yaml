@@ -1,0 +1,9 @@
+default:
+  - 'addtextdomain'
+  - 'makepot'
+  - 'wp_readme_to_markdown'
+i18n:
+  - 'addtextdomain'
+  - 'makepot'
+readme:
+  - 'wp_readme_to_markdown'
