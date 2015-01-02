@@ -55,6 +55,8 @@ function change_keepmytheme_history( $history ) {
 add_filter( 'keepmytheme_history', 'change_keepmytheme_history' );
 `
 
+Note: You should put this snippet in a new (must-use) plugin or your current theme's `functions.php` file.
+
 == Screenshots ==
 
 1. Each post uses the theme that was active when it was initially published.
