@@ -106,6 +106,10 @@ function keepmytheme_get_option() {
  */
 function keepmytheme_switch_theme() {
 
+	if ( is_admin() ) {
+		return;
+	}
+
 	$wp = new WP();
 	$wp->parse_request();
 	$wp->query_posts();
@@ -118,19 +122,19 @@ function keepmytheme_switch_theme() {
 		switch_theme( $latest_theme );
 	}
 
-	if ( ! is_single() || is_admin() ) {
+	if ( ! is_single() ) {
 		return;
 	}
 
-	$option = keepmytheme_get_option();
+	$history = keepmytheme_get_option();
 
-	if ( ! is_array( $option ) || empty( $option ) ) {
+	if ( ! is_array( $history ) || empty( $history ) ) {
 		return;
 	}
 
 	$post_date = get_post_time( 'U', true, get_queried_object() );
 
-	foreach ( $option as $timestamp => $theme ) {
+	foreach ( $history as $timestamp => $theme ) {
 		if ( $timestamp >= $post_date ) {
 			continue;
 		}
@@ -141,11 +145,21 @@ function keepmytheme_switch_theme() {
 			// Only switch if the theme exists and isn't already active
 			if ( $theme_obj->exists() && $current_theme->get_stylesheet() !== $theme ) {
 				switch_theme( $theme );
+				return;
 			}
-
-			return;
 		}
 	}
+
+	// Switch to the oldest theme in the history if there wasn't a switch yet.
+	$oldest_possible_theme = array_values( $history );
+	$oldest_possible_theme = array_pop( $oldest_possible_theme );
+	$oldest_possible_theme_obj = wp_get_theme( $oldest_possible_theme );
+
+	if ( $oldest_possible_theme_obj->exists() ) {
+		switch_theme( $oldest_possible_theme );
+		return;
+	}
+
 }
 
 add_action( 'setup_theme', 'keepmytheme_switch_theme' );
