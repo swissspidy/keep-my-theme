@@ -132,7 +132,9 @@ svn propset svn:ignore "deploy.sh
                         Gruntfile.js
                         package.json
                         node_modules
-                        Thumbs.db" "$SVNPATH/trunk/"
+                        Thumbs.db
+                        screenshot-1.png
+                        screenshot-2.png" "$SVNPATH/trunk/"
 
 echo "Exporting the HEAD of master from git to the trunk of SVN"
 git checkout-index -a -f --prefix=$SVNPATH/trunk/
